@@ -1,0 +1,11 @@
+<ng-container *ngIf="showPrompt; else appContent">
+  <div class="username-overlay">
+    <h2>Enter your username</h2>
+    <input [(ngModel)]="username" placeholder="Unique developer name" />
+    <button (click)="saveUsername()">Continue</button>
+  </div>
+</ng-container>
+
+<ng-template #appContent>
+  <router-outlet></router-outlet>
+</ng-template>

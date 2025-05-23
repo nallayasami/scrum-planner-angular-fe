@@ -1,0 +1,26 @@
+<div class="vote-panel">
+  <h2>Vote in: {{ passphrase }}</h2>
+
+  <div *ngIf="!hasVoted; else thankYou">
+    <p>Select your estimation:</p>
+    <button *ngFor="let opt of options" (click)="vote(opt)">
+      {{ opt }}
+    </button>
+  </div>
+
+  <ng-template #thankYou>
+    <p>✅ Vote submitted!</p>
+
+    <div *ngIf="votes.length > 0">
+      <p><strong>Votes:</strong></p>
+      <ul>
+        <li *ngFor="let vote of votes">{{ vote.userId }}: {{ vote.voteValue }}</li>
+      </ul>
+
+      <p *ngIf="average !== null">Average: {{ average | number: '1.1-1' }}</p>
+
+      <!-- Fireworks if all votes are the same -->
+      <app-fireworks-animation *ngIf="allSame"></app-fireworks-animation>
+    </div>
+  </ng-template>
+</div>

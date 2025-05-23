@@ -1,0 +1,10 @@
+<div class="join-session">
+  <h2>Join a Scrum Session</h2>
+
+  <label>Passphrase</label>
+  <input [(ngModel)]="passphrase" placeholder="e.g. null-ninja" />
+
+  <button (click)="join()">🔑 Join</button>
+
+  <p *ngIf="errorMessage" style="color:red">{{ errorMessage }}</p>
+</div>

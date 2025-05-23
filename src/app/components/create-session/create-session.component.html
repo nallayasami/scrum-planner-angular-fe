@@ -1,0 +1,11 @@
+<div class="create-session">
+  <h2>Create a New Scrum Session</h2>
+
+  <label>Passphrase</label>
+  <input [(ngModel)]="passphrase" placeholder="Enter or generate" />
+
+  <button (click)="generatePassphrase()">🎲 Generate Funny Passphrase</button>
+  <button (click)="createSession()" [disabled]="creating || !passphrase.trim()">🚀 Create Session</button>
+
+  <p *ngIf="createdSessionId">✅ Session created! ID: {{ createdSessionId }}</p>
+</div>
