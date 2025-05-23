@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Session } from '../../models/session.model';
 import { SessionService } from '../../services/session.service';
 import {CommonModule} from '@angular/common';
+import {RouterLink} from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   selector: 'app-session-list',
   templateUrl: './session-list.component.html',
   styleUrls: ['./session-list.component.scss']

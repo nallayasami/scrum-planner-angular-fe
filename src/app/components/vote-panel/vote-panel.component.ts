@@ -4,11 +4,12 @@ import {SessionService} from '../../services/session.service';
 import {UserService} from '../../services/user.service';
 import {CommonModule} from '@angular/common';
 import {Vote} from '../../models/vote.model';
+import {FireworksAnimationComponent} from '../fireworks-animation/fireworks-animation.component';
 
 @Component({
   selector: 'app-vote-panel',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FireworksAnimationComponent],
   templateUrl: './vote-panel.component.html'
 })
 export class VotePanelComponent
