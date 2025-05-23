@@ -21,7 +21,11 @@ jobs:
         run: ng build --configuration production
 
       - name: Create GitHub Release
-        run: gh release create $(date +%Y%m%d%H%M%S) ./dist/scrum-planner/browser/** --title "Frontend Build $(date +%Y-%m-%d_%H-%M)" --notes "Automated release"
+        run: |
+          TAG=$(date +%Y%m%d%H%M%S)
+          gh release create "$TAG" dist/scrum-planner/browser/* \
+            --title "Frontend Build $TAG" \
+            --notes "Automated release"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
