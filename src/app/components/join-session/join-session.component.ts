@@ -4,11 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { SessionService } from '../../services/session.service';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
+import {MatCard, MatCardContent, MatCardTitle} from '@angular/material/card';
+import {MatError, MatFormField, MatInput} from '@angular/material/input';
+import {MatButton} from '@angular/material/button';
+import {MatLabel} from '@angular/material/select';
 
 @Component({
   selector: 'app-join-session',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MatCard, MatCardTitle, MatCardContent, MatFormField,
+            MatLabel, MatInput, MatButton, MatError],
   templateUrl: './join-session.component.html'
 })
 export class JoinSessionComponent {

@@ -1,0 +1,41 @@
+.create-session-card {
+  background-color: #1e1b1c;
+  color: #fff;
+  max-width: 400px;
+  margin: 4rem auto;
+  padding: 2rem;
+
+  mat-card-title {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 1.5rem;
+  }
+
+  mat-form-field {
+    width: 100%;
+    color: white;
+  }
+
+  mat-label,
+  input,
+  .mat-input-element {
+    color: white !important;
+    caret-color: white;
+  }
+
+  .mat-icon {
+    color: white;
+    font-size: 20px;
+    margin-left: 0.25rem;
+  }
+
+  .mat-form-field-wrapper {
+    padding-bottom: 1rem;
+  }
+
+  .actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+}

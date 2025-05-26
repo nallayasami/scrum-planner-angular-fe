@@ -1,10 +1,17 @@
-<div class="join-session">
-  <h2>Join a Scrum Session</h2>
+<mat-card class="join-session-card">
+  <mat-card-title>Join a Scrum Session</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="join()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Passphrase</mat-label>
+        <input matInput [(ngModel)]="passphrase" name="passphrase" placeholder="e.g. null-ninja" required />
+      </mat-form-field>
 
-  <label>Passphrase</label>
-  <input [(ngModel)]="passphrase" placeholder="e.g. null-ninja" />
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit">🔑 Join</button>
+      </div>
 
-  <button (click)="join()">🔑 Join</button>
-
-  <p *ngIf="errorMessage" style="color:red">{{ errorMessage }}</p>
-</div>
+      <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+    </form>
+  </mat-card-content>
+</mat-card>

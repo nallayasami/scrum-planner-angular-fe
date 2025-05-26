@@ -1,11 +1,25 @@
-<div class="create-session">
-  <h2>Create a New Scrum Session</h2>
+<mat-card class="create-session-card">
+  <mat-card-title>Create a New Session</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="createSession()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Session Name</mat-label>
+        <input matInput [(ngModel)]="sessionName" name="sessionName" required />
+      </mat-form-field>
 
-  <label>Passphrase</label>
-  <input [(ngModel)]="passphrase" placeholder="Enter or generate" />
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Passphrase</mat-label>
+        <input matInput [(ngModel)]="passphrase" name="passphrase" required />
+        <button mat-icon-button matSuffix (click)="generatePassphrase()" aria-label="Generate passphrase">
+          <mat-icon>autorenew</mat-icon>
+        </button>
+      </mat-form-field>
 
-  <button (click)="generatePassphrase()">🎲 Generate Funny Passphrase</button>
-  <button (click)="createSession()" [disabled]="creating || !passphrase.trim()">🚀 Create Session</button>
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit" (click)="createSession()">🚀 Create Session</button>
+      </div>
 
-  <p *ngIf="createdSessionId">✅ Session created! ID: {{ createdSessionId }}</p>
-</div>
+      <mat-hint *ngIf="infoMessage">{{ infoMessage }}</mat-hint>
+    </form>
+  </mat-card-content>
+</mat-card>

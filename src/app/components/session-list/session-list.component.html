@@ -1,18 +1,23 @@
 <div class="session-list-container">
   <h2>Active Planning Sessions</h2>
-  <a routerLink="/create-session">➕ New Session</a>
-  <ul *ngIf="sessions.length > 0; else noSessions">
-    <li *ngFor="let session of sessions">
-      🧠 <strong>{{ session.passphrase }}</strong>
-      <span>Created: {{ session.createdAt | date:'short' }}</span>
-    </li>
-  </ul>
+
+  <div *ngIf="sessions.length > 0; else noSessions">
+    <mat-card *ngFor="let session of sessions" class="session-card">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>groups</mat-icon>
+        <mat-card-title>{{ session.passphrase }}</mat-card-title>
+        <mat-card-subtitle>Created: {{ session.createdAt | date:'short' }}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>
 
   <ng-template #noSessions>
     <p>No active sessions found.</p>
   </ng-template>
 
-  <button mat-raised-button color="primary" (click)="loadSessions()">
-    🔄 Refresh
-  </button>
+  <div class="action-button">
+    <button mat-raised-button color="primary" (click)="loadSessions()">
+      🔄 Refresh
+    </button>
+  </div>
 </div>
