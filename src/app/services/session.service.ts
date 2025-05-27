@@ -16,8 +16,8 @@ export class SessionService {
     return this.http.get<Session[]>(this.baseUrl);
   }
 
-  createSession(passphrase: string): Observable<Session> {
-    return this.http.post<Session>(this.baseUrl, { passphrase });
+  createSession(name: string, passphrase: string): Observable<Session> {
+    return this.http.post<Session>(this.baseUrl, { name, passphrase });
   }
 
   joinSession(passphrase: string, username: string): Observable<any> {

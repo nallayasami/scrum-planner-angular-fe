@@ -6,14 +6,17 @@ import {SessionService} from '../../services/session.service';
 import {Router} from '@angular/router';
 import {MatCard, MatCardContent, MatCardTitle} from '@angular/material/card';
 import {MatFormField, MatHint, MatInput} from '@angular/material/input';
-import {MatLabel} from '@angular/material/select';
-import {MatIcon} from '@angular/material/icon';
+import {MatIcon, MatIconModule} from '@angular/material/icon';
+import {MatButton} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-create-session',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatHint, MatCard, MatCardTitle, MatCardContent, MatFormField,
-            MatLabel, MatFormField, MatInput, MatIcon],
+  imports: [CommonModule, MatFormFieldModule, FormsModule, MatIconModule, MatHint, MatCard,
+            MatCardTitle,
+            MatCardContent, MatFormField,
+            MatFormField, MatInput, MatIcon, MatButton],
   templateUrl: './create-session.component.html',
   styleUrls: ['./create-session.component.scss']
 })
@@ -49,7 +52,7 @@ export class CreateSessionComponent
     }
 
     this.creating = true;
-    this.sessionService.createSession(this.passphrase).subscribe({
+    this.sessionService.createSession(this.sessionName, this.passphrase).subscribe({
       next: session =>
       {
         this.creating = false;

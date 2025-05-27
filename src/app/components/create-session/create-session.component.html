@@ -4,19 +4,21 @@
     <form (ngSubmit)="createSession()">
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Session Name</mat-label>
-        <input matInput [(ngModel)]="sessionName" name="sessionName" required />
+        <input matInput placeholder="Session Name" [(ngModel)]="sessionName" name="sessionName"
+               required/>
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Passphrase</mat-label>
-        <input matInput [(ngModel)]="passphrase" name="passphrase" required />
-        <button mat-icon-button matSuffix (click)="generatePassphrase()" aria-label="Generate passphrase">
-          <mat-icon>autorenew</mat-icon>
-        </button>
+        <input matInput placeholder="Passphrase" [(ngModel)]="passphrase" name="passphrase"
+               required/>
+        <mat-icon matSuffix (click)="generatePassphrase()">autorenew</mat-icon>
       </mat-form-field>
 
       <div class="actions">
-        <button mat-raised-button color="primary" type="submit" (click)="createSession()">🚀 Create Session</button>
+        <button mat-raised-button color="primary" type="submit" (click)="createSession()">🚀 Create
+          Session
+        </button>
       </div>
 
       <mat-hint *ngIf="infoMessage">{{ infoMessage }}</mat-hint>
