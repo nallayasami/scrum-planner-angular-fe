@@ -1,0 +1,24 @@
+<div class="session-list-container">
+  <div class="header-row">
+    <div class="title">Active Planning Sessions</div>
+    <div class="spacer"></div>
+    <button mat-raised-button color="primary" (click)="loadSessions()">
+      🔄 Refresh
+    </button>
+  </div>
+
+  <div *ngIf="sessions.length > 0; else noSessions">
+    <mat-card *ngFor="let session of sessions" class="session-card"
+              (click)="joinSession(session.passphrase)">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>groups</mat-icon>
+        <mat-card-title>{{ session.name }}</mat-card-title>
+        <mat-card-subtitle>Created: {{ session.createdAt | date:'short' }}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>
+
+  <ng-template #noSessions>
+    <p>No active sessions found.</p>
+  </ng-template>
+</div>
