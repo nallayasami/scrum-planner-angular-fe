@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Session} from '../../models/session.model';
 import {SessionService} from '../../services/session.service';
 import {CommonModule} from '@angular/common';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {MatCard, MatCardHeader, MatCardSubtitle, MatCardTitle} from '@angular/material/card';
 import {MatIcon} from '@angular/material/icon';
 import {MatToolbar} from '@angular/material/toolbar';
@@ -20,7 +20,7 @@ export class SessionListComponent implements OnInit
 {
   sessions: Session[] = [];
 
-  constructor(private sessionService: SessionService) {}
+  constructor(private sessionService: SessionService, private router: Router) {}
 
   ngOnInit(): void
   {
@@ -33,5 +33,10 @@ export class SessionListComponent implements OnInit
       next: (data) => this.sessions = data,
       error: (err) => console.error('Error loading sessions:', err)
     });
+  }
+
+  public joinSession(passphrase: string)
+  {
+    this.router.navigate(['/join-session'], {queryParams: {passphrase}});
   }
 }

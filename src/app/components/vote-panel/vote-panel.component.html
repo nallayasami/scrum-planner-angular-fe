@@ -1,26 +1,42 @@
-<div class="vote-panel">
-  <h2>Vote in: {{ passphrase }}</h2>
+<div class="vote-panel mat-typography">
+  <mat-card class="vote-session-card">
+    <mat-card-title>Vote in: {{ sessionName }}</mat-card-title>
+    <mat-card-content>
 
-  <div *ngIf="!hasVoted; else thankYou">
-    <p>Select your estimation:</p>
-    <button *ngFor="let opt of options" (click)="vote(opt)">
-      {{ opt }}
-    </button>
-  </div>
+      <div *ngIf="!hasVoted; else thankYou">
+        <p>Select your estimation:</p>
+        <mat-button-toggle-group appearance="legacy" [(ngModel)]="selectedVote" name="voteOptions">
+          <mat-button-toggle *ngFor="let opt of options" [value]="opt">
+            {{ opt }}
+          </mat-button-toggle>
+        </mat-button-toggle-group>
 
-  <ng-template #thankYou>
-    <p>✅ Vote submitted!</p>
+        <div class="submit-vote-button" style="text-align: center; margin-top: 1rem;">
+          <button mat-raised-button color="primary" [disabled]="!selectedVote" (click)="vote(selectedVote)">
+            Submit Vote
+          </button>
+        </div>
+      </div>
 
-    <div *ngIf="votes.length > 0">
-      <p><strong>Votes:</strong></p>
-      <ul>
-        <li *ngFor="let vote of votes">{{ vote.userId }}: {{ vote.voteValue }}</li>
-      </ul>
+      <ng-template #thankYou>
+        <p class="vote-success">✅ Vote submitted!</p>
 
-      <p *ngIf="average !== null">Average: {{ average | number: '1.1-1' }}</p>
+        <div *ngIf="votes.length > 0">
+          <h3>Votes</h3>
+          <mat-list>
+            <mat-list-item *ngFor="let vote of votes">
+              {{ vote.userId }}: <strong>{{ vote.voteValue }}</strong>
+            </mat-list-item>
+          </mat-list>
 
-      <!-- Fireworks if all votes are the same -->
-      <app-fireworks-animation *ngIf="allSame"></app-fireworks-animation>
-    </div>
-  </ng-template>
+          <p *ngIf="average !== null" class="vote-average">
+            Average: <strong>{{ average | number: '1.1-1' }}</strong>
+          </p>
+
+          <app-fireworks-animation *ngIf="allSame"></app-fireworks-animation>
+        </div>
+      </ng-template>
+
+    </mat-card-content>
+  </mat-card>
 </div>

@@ -1,0 +1,73 @@
+
+
+.vote-session-card {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #1e1b1c;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.vote-success {
+  font-size: 18px;
+  margin-bottom: 1.5rem;
+  color: #90ee90;
+  font-weight: 500;
+}
+
+.vote-average {
+  margin-top: 1.5rem;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+mat-card-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+mat-button-toggle-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+mat-button-toggle {
+  font-size: 18px;
+  padding: 0.5rem 1rem;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border-radius: 4px !important;
+}
+
+mat-button-toggle.mat-button-toggle-checked {
+  background-color: #ba68c8;
+  color: white;
+}
+
+.submit-vote-button {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+
+  button {
+    background-color: #ba68c8;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    border-radius: 24px;
+    text-transform: none;
+  }
+
+  button:disabled {
+    background-color: #555;
+    color: #ccc;
+  }
+}

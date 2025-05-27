@@ -14,7 +14,7 @@ export const routes: Routes = [
       { path: 'sessions', component: SessionListComponent },
       { path: 'join-session', component: JoinSessionComponent },
       { path: 'create-session', component: CreateSessionComponent },
-      { path: 'vote/:passphrase', component: VotePanelComponent },
+      { path: 'vote/:sessionName', component: VotePanelComponent },
       { path: '**', redirectTo: 'sessions' } // Keep this last!
     ]
   }

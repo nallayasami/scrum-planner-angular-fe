@@ -20,8 +20,8 @@ export class SessionService {
     return this.http.post<Session>(this.baseUrl, { name, passphrase });
   }
 
-  joinSession(passphrase: string, username: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/join`, { passphrase, username });
+  joinSession(passphrase: string, username: string): Observable<Session> {
+    return this.http.post<Session>(`${this.baseUrl}/join`, { passphrase, username });
   }
 
   submitVote(sessionId: string, userId: string, voteValue: string): Observable<Vote> {
