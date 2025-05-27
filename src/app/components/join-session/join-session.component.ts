@@ -39,7 +39,7 @@ export class JoinSessionComponent
     }
 
     this.sessionService.joinSession(this.passphrase.trim(), username).subscribe({
-      next: (session ) =>
+      next: (session) =>
       {
         this.errorMessage = '';
         this.router.navigate(['/vote', session.name]);
