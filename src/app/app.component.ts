@@ -3,12 +3,25 @@ import {UserService} from './services/user.service';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {RouterOutlet} from '@angular/router';
+import {
+  MatCard,
+  MatCardActions,
+  MatCardContent,
+  MatCardHeader,
+  MatCardSubtitle, MatCardTitle
+} from '@angular/material/card';
+import {MatFormField, MatInput} from '@angular/material/input';
+import {MatLabel} from '@angular/material/select';
+import {MatButton} from '@angular/material/button';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterOutlet],
+  imports: [FormsModule, CommonModule, RouterOutlet, MatCard, MatCardHeader, MatCardContent,
+            MatFormField, MatCardActions, MatLabel, MatCardSubtitle, MatCardTitle, MatInput,
+            MatButton],
   templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   username = '';
